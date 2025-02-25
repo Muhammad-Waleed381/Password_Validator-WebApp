@@ -1,0 +1,11 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#password_box{
+    border-radius: 30px;
+    border: 10 px transparent solid;
+}
