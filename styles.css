@@ -10,3 +10,10 @@
     border-radius: 30px;
     border: 10 px transparent solid;
 }
+
+.input_container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap:9px
+}
