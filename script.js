@@ -43,15 +43,15 @@ password_input.addEventListener("keydown", function(event) {
     }
 });
 
-
-
 let eye=document.getElementById("eye");
 eye.addEventListener("click",function(event){
     if(password_input.type==="text"){
         password_input.type="password";
+        eye.src="eye.png"
     }
     else if(password_input.type==="password"){
         password_input.type="text";
+        eye.src="view.png"
     }
 })
 
