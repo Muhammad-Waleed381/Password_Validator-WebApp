@@ -10,7 +10,7 @@ password_input.addEventListener("keydown", function(event) {
         let Capital = /[A-Z]/.test(password_input.value);
         let Small = /[a-z]/.test(password_input.value);
         let Number = /[0-9]/.test(password_input.value);
-        let Special=/[^A-Za-z0-9\s]/g;
+        let Special=/[^A-Za-z0-9\s]/.test(password_input.value);
 
 
         try {
