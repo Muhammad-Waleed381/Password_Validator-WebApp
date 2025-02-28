@@ -1,11 +1,31 @@
 let password_input = document.getElementById("input_Field");
 let messageDisplay = document.getElementById("Message_display");
 
-password_input.addEventListener("keydown", function(event) {
+
+
+function fetchCommonPasswords(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            if(Math.random()<0.5){
+                resolve(["11223344","qwertyui","iloveyou"]);
+            }
+            else{
+                reject("Fetch data from the server failed.")
+            }
+        },1)
+    })
+}
+
+
+//Code for validating the password input.
+
+password_input.addEventListener("keydown", async function(event) {
     if(event.key === "Enter") {
         while(messageDisplay.firstChild){
             messageDisplay.removeChild(messageDisplay.firstChild);
         }
+
+        const CommonPasswords = await fetchCommonPasswords();
         
         let Capital = /[A-Z]/.test(password_input.value);
         let Small = /[a-z]/.test(password_input.value);
@@ -14,6 +34,10 @@ password_input.addEventListener("keydown", function(event) {
 
 
         try {
+            if (CommonPasswords.includes(password_input.value)) {
+                throw new Error("The password cannto be a common one.")
+            }
+
             if(password_input.value.length < 8) {
                 throw new Error("The password must be at least 8 characters long.");
             }
@@ -42,6 +66,8 @@ password_input.addEventListener("keydown", function(event) {
         }
     }
 });
+
+//Code for the eye icon changing dynamically.
 
 let eye=document.getElementById("eye");
 eye.addEventListener("click",function(event){
